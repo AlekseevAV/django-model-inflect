@@ -1,5 +1,5 @@
 import logging
-from typing import Optional, Dict, Iterable
+from typing import Dict, Iterable
 
 import pymorphy2
 
@@ -29,9 +29,12 @@ class Inflector(metaclass=Singleton):
         return result
 
     def _safe_inflect(self, string: str, case: str) -> str:
+        is_capitalized_string = string[0].isupper()
         try:
             # .inflect() can return None and None.word will raise AttributeError
             string = self._morph.parse(string)[0].inflect({case}).word
         except AttributeError:
             logger.warning('Cannot inflect word: {} to {} case.'.format(string, case))
+        if is_capitalized_string:
+            string = string.capitalize()
         return string
