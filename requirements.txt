@@ -1,2 +1,1 @@
-Django>=2.2
 pymorphy2==0.8

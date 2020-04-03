@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 from distutils.core import setup
 
-version = '0.1.0'
+version = '0.1.1'
 
 
 setup(
@@ -15,7 +15,7 @@ setup(
     author_email='alekseevavx@gmail.com',
     url='https://github.com/AlekseevAV/django-model-inflect',
     packages=['model_inflect'],
-    install_requires=['Django>=2.2', 'pymorphy2'],
+    install_requires=['pymorphy2'],
     classifiers=[
         'Programming Language :: Python',
         'Programming Language :: Python :: 3.6',
